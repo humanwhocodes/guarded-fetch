@@ -1,7 +1,7 @@
 {
-  "name": "@humanwhocodes/replace-me",
+  "name": "@humanwhocodes/guarded-fetch",
   "version": "0.0.0",
-  "description": "Replace me",
+  "description": "A wrapper around fetch() that catches errors and returns them in a consistent format",
   "type": "module",
   "main": "dist/index.js",
   "module": "dist/index.js",
@@ -49,10 +49,12 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/humanwhocodes/replace-me.git"
+    "url": "git+https://github.com/humanwhocodes/guarded-fetch.git"
   },
   "keywords": [
-
+    "fetch",
+    "error-handling",
+    "http"
   ],
   "author": "Nicholas C. Zaks",
   "license": "Apache-2.0",

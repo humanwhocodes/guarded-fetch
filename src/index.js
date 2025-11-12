@@ -17,14 +17,10 @@
  * @returns {(...args: Parameters<typeof fetch>) => Promise<GuardedFetchResult>} A function that returns a promise with response and error properties
  */
 export function createGuardedFetch(fetchFn) {
-	return async (...args) => {
-		try {
-			const response = await fetchFn(...args);
-
-			return { response, error: undefined };
-		} catch (error) {
-			return { response: undefined, error };
-		}
+	return (...args) => {
+		return fetchFn(...args)
+			.then((response) => ({ response, error: undefined }))
+			.catch((error) => ({ response: undefined, error }));
 	};
 }
 

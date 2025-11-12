@@ -24,25 +24,25 @@ The `guardedFetch` function is a wrapped version of the global `fetch()` functio
 import { guardedFetch } from "@humanwhocodes/guarded-fetch";
 
 // Successful request
-const result = await guardedFetch("https://api.example.com/data");
-if (result.error) {
-	console.error("Fetch failed:", result.error);
+const { response, error } = await guardedFetch("https://api.example.com/data");
+if (error) {
+	console.error("Fetch failed:", error);
 } else {
-	console.log("Response:", result.response);
+	console.log("Response:", response);
 }
 
 // Failed request (network error)
-const result2 = await guardedFetch("https://invalid-domain.example");
-if (result2.error) {
-	console.error("Fetch failed:", result2.error); // Error will be defined
+const { response: response2, error: error2 } = await guardedFetch("https://invalid-domain.example");
+if (error2) {
+	console.error("Fetch failed:", error2); // Error will be defined
 }
 
 // HTTP error (like 404)
-const result3 = await guardedFetch("https://api.example.com/not-found");
-if (result3.error) {
-	console.error("Fetch failed:", result3.error);
-} else if (!result3.response.ok) {
-	console.log("HTTP error:", result3.response.status);
+const { response: response3, error: error3 } = await guardedFetch("https://api.example.com/not-found");
+if (error3) {
+	console.error("Fetch failed:", error3);
+} else if (!response3.ok) {
+	console.log("HTTP error:", response3.status);
 }
 ```
 
@@ -56,11 +56,11 @@ import nodeFetch from "node-fetch";
 
 const guardedNodeFetch = createGuardedFetch(nodeFetch);
 
-const result = await guardedNodeFetch("https://api.example.com/data");
-if (result.error) {
-	console.error("Fetch failed:", result.error);
+const { response, error } = await guardedNodeFetch("https://api.example.com/data");
+if (error) {
+	console.error("Fetch failed:", error);
 } else {
-	console.log("Response:", result.response);
+	console.log("Response:", response);
 }
 ```
 

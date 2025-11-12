@@ -1,6 +1,6 @@
 {
   "name": "@humanwhocodes/guarded-fetch",
-  "version": "0.0.0",
+  "version": "1.0.0",
   "description": "A wrapper around fetch() that catches errors and returns them in a consistent format",
   "type": "module",
   "main": "dist/index.js",
@@ -70,6 +70,5 @@
     "typescript": "^5.6.3",
     "yorkie": "2.0.0"
   },
-  "dependencies": {
-  }
+  "dependencies": {}
 }
